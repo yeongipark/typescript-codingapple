@@ -1,6 +1,7 @@
 {
   "compilerOtpions": {
     "target": "es2016",
-    "module": "es2015"
+    "module": "es2015",
+    "strictNullChecks": true
   }
 }

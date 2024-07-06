@@ -1,11 +1,4 @@
-var 회원정보 = {
-    name: "kim",
-    age: 30,
-    plusOne: function (x) {
-        return x + 1;
-    },
-    changeName: function () {
-        console.log("안녕");
-    },
-};
-회원정보.changeName();
+var 링크 = document.querySelector(".link");
+if (링크 instanceof HTMLAnchorElement) {
+    링크.href = "https://kakao.com";
+}

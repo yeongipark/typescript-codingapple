@@ -1,18 +1,5 @@
-type Member = {
-  name: string;
-  plusOne: (x: number) => number;
-  changeName: () => {};
-};
+let 링크 = document.querySelector(".link");
 
-let 회원정보 = {
-  name: "kim",
-  age: 30,
-  plusOne(x) {
-    return x + 1;
-  },
-  changeName: () => {
-    console.log("안녕");
-  },
-};
-
-회원정보.changeName();
+if (링크 instanceof HTMLAnchorElement) {
+  링크.href = "https://kakao.com";
+}
