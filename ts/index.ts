@@ -1,19 +1,30 @@
-class Word {
-  num: number[];
-  str: string[];
-  constructor(...arr: (number | string)[]) {
-    this.num = [];
-    this.str = [];
-    arr.forEach((item) => {
-      if (typeof item === "number") {
-        this.num.push(item);
-      } else {
-        this.str.push(item);
-      }
-    });
-  }
+// 1번
+interface Product {
+  brand: string;
+  serialNumber: number;
+  model: string[];
 }
 
-let obj = new Word("kim", 3, 5, "park");
-console.log(obj.num); //[3,5]
-console.log(obj.str); //['kim', 'park']
+let 상품: Product = {
+  brand: "Samsung",
+  serialNumber: 1360,
+  model: ["TV", "phone"],
+};
+
+// 2번
+interface Cart {
+  product: string;
+  price: number;
+}
+
+let 장바구니: Cart[] = [
+  { product: "청소기", price: 7000 },
+  { product: "삼다수", price: 800 },
+];
+
+// 3번
+interface ExtendCart extends Cart {
+  card: boolean;
+}
+
+let obj: ExtendCart = { product: "청소기", price: 7000, card: false };
