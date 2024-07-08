@@ -1,30 +1,32 @@
-// 1번
-interface Product {
-  brand: string;
-  serialNumber: number;
-  model: string[];
+// 1 번
+function max(...rest: number[]): number {
+  return rest.reduce((acc, cur) => {
+    if (acc < cur) {
+      return (acc = cur);
+    } else {
+      return acc;
+    }
+  }, -100000);
 }
 
-let 상품: Product = {
-  brand: "Samsung",
-  serialNumber: 1360,
-  model: ["TV", "phone"],
+console.log(max(1, 2, 3, 4, 5, 5, 6, 77, 6, 7, 8, 7, 6));
+
+// 2 번
+
+type Func = {
+  user: string;
+  comment: number[];
+  admin: boolean;
 };
+function 함수({ user, comment, admin }: Func) {
+  console.log(user, comment, admin);
+}
+함수({ user: "kim", comment: [3, 5, 4], admin: false });
 
-// 2번
-interface Cart {
-  product: string;
-  price: number;
+// 3 번
+type Arr = (number | boolean | string)[];
+function 함수1([num, string, boolean]: Arr) {
+  console.log(num, string, boolean);
 }
 
-let 장바구니: Cart[] = [
-  { product: "청소기", price: 7000 },
-  { product: "삼다수", price: 800 },
-];
-
-// 3번
-interface ExtendCart extends Cart {
-  card: boolean;
-}
-
-let obj: ExtendCart = { product: "청소기", price: 7000, card: false };
+함수1([40, "wine", false]);
