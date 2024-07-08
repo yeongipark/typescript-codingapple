@@ -1,5 +1,16 @@
-let 링크 = document.querySelector(".link");
+class Car {
+  model: string;
+  price: number;
+  constructor(model: string, price: number) {
+    this.model = model;
+    this.price = price;
+  }
 
-if (링크 instanceof HTMLAnchorElement) {
-  링크.href = "https://kakao.com";
+  tax(): number {
+    return this.price / 10;
+  }
 }
+
+let car1 = new Car("소나타", 3000);
+console.log(car1); //콘솔창 출력결과는 { model : '소나타', price : 3000 }
+console.log(car1.tax()); //콘솔창 출력결과는 300
