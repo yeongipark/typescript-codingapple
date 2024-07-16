@@ -1,32 +1,18 @@
-// 1 번
-function max(...rest: number[]): number {
-  return rest.reduce((acc, cur) => {
-    if (acc < cur) {
-      return (acc = cur);
-    } else {
-      return acc;
-    }
-  }, -100000);
+class User {
+  private static x = 10;
+  public static y = 20;
+
+  static addOne: (num: number) => void = function (num) {
+    User.x += num;
+  };
+
+  static printX: () => void = function () {
+    console.log(User.x);
+  };
 }
 
-console.log(max(1, 2, 3, 4, 5, 5, 6, 77, 6, 7, 8, 7, 6));
+User.addOne(3); //이렇게 하면 x가 3 더해져야함
+User.addOne(4); //이렇게 하면 x가 4 더해져야함
+User.printX(); //이렇게 하면 콘솔창에 x값이 출력되어야함
 
-// 2 번
-
-type Func = {
-  user: string;
-  comment: number[];
-  admin: boolean;
-};
-function 함수({ user, comment, admin }: Func) {
-  console.log(user, comment, admin);
-}
-함수({ user: "kim", comment: [3, 5, 4], admin: false });
-
-// 3 번
-type Arr = (number | boolean | string)[];
-function 함수1([num, string, boolean]: Arr) {
-  console.log(num, string, boolean);
-}
-
-함수1([40, "wine", false]);
+console.log(User.y);
