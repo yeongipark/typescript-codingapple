@@ -1,17 +1,20 @@
-var User = /** @class */ (function () {
-    function User() {
+function 함수(x) {
+    console.log(x.length);
+    return;
+}
+함수("hello");
+함수(["kim", "park"]);
+function parse(x) {
+    return JSON.parse(x);
+}
+var data = '{"name" : "dog", "age" : 1 }';
+console.log(parse(data));
+// 3번
+var Person = /** @class */ (function () {
+    function Person(a) {
+        this.name = a;
     }
-    User.x = 10;
-    User.y = 20;
-    User.addOne = function (num) {
-        User.x += num;
-    };
-    User.printX = function () {
-        console.log(User.x);
-    };
-    return User;
+    return Person;
 }());
-User.addOne(3); //이렇게 하면 x가 3 더해져야함
-User.addOne(4); //이렇게 하면 x가 4 더해져야함
-User.printX(); //이렇게 하면 콘솔창에 x값이 출력되어야함
-console.log(User.y);
+var a = new Person("어쩌구");
+a.name;

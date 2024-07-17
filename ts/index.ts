@@ -1,18 +1,35 @@
-class User {
-  private static x = 10;
-  public static y = 20;
+// 1번 해결
+type Length = {
+  length: number;
+};
 
-  static addOne: (num: number) => void = function (num) {
-    User.x += num;
-  };
-
-  static printX: () => void = function () {
-    console.log(User.x);
-  };
+function 함수<T extends string | string[]>(x: T) {
+  console.log(x.length);
+  return;
 }
 
-User.addOne(3); //이렇게 하면 x가 3 더해져야함
-User.addOne(4); //이렇게 하면 x가 4 더해져야함
-User.printX(); //이렇게 하면 콘솔창에 x값이 출력되어야함
+함수<string>("hello");
+함수<string[]>(["kim", "park"]);
 
-console.log(User.y);
+// 2 번
+interface Animal {
+  name: string;
+  age: number;
+}
+
+function parse<T>(x: string): T {
+  return JSON.parse(x);
+}
+
+let data = '{"name" : "dog", "age" : 1 }';
+console.log(parse<Animal>(data));
+
+// 3번
+class Person<T> {
+  name: T;
+  constructor(a: T) {
+    this.name = a;
+  }
+}
+let a = new Person<string>("어쩌구");
+a.name;
